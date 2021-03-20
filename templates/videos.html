@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="stylesheet" href="/static/css/textanalysis.css">
+
+    <link rel="icon" href="static/images/finalLogo.png">
+
+</head>
+
+<style>
+    body {
+        background-color: #222830;
+    }
+
+    .button {
+        height: 50px;
+        width: 80px;
+        /* display: none; */
+        position: fixed;
+        bottom: 15px;
+        right: 7px;
+        z-index: 99;
+        padding: 0px;
+        font-size: 60px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        color: white;
+        cursor: pointer;
+        border-radius: 4px;
+        vertical-align: middle;
+        display: table-cell;
+    }
+</style>
+
+<body>
+    <header id="header">
+        <h1><a href="/">KlassRoom</a></h1>
+        <nav id="nav">
+            <ul>
+                <li class="special">
+                    <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                    <div id="menu">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/record">Record</a></li>
+                            <li><a href="/convertwav">Upload Recording</a></li>
+                            <li><a href="/#three">Meet the Team</a></li>
+                            <li><a href="/#footer">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--<div class="wrapper"></div>-->
+
+    <div style="margin: auto;">
+        {% for video in videos %}
+        <iframe src="{{video}}" frameborder="0" width="24.6%"
+            allow=" accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        {% endfor %}
+    </div>
+
+    <form action="/textanalysis">
+        <button class="button">←</button>
+    </form>
+
+
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.scrollex.min.js"></script>
+    <script src="static/js/jquery.scrolly.min.js"></script>
+    <script src="static/js/browser.min.js"></script>
+    <script src="static/js/breakpoints.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
+</body>
+
+</html>

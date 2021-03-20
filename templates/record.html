@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+<!--js and css links-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Recorder</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='ourcss/style.css')}}">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+    <link rel="stylesheet" href="static/css/recorder.css" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery.min.js">
+    </script>
+    <script src="https://stephino.github.io/dist/recorder.js"></script>
+    <script src="{{url_for('static', filename='ourscripts/recorder.js')}}"></script>
+    <link rel="stylesheet" href="static/ourcss/style.css" />
+
+    <style>
+        /* .div {
+            border: 3px solid #000000;
+        } */
+
+        button {
+            width: 500px;
+            height: 150px;
+            font-size: 30px;
+            background-color: red;
+            border-radius: 10px;
+            border-width: 0px;
+            position: absolute;
+            outline: none;
+            top: 45%;
+            left: 30%;
+        }
+
+        .notRec {
+            background-color: red;
+            border: 3px solid #000000;
+        }
+
+        .Rec:focus {
+            outline: none
+        }
+
+        .Rec {
+            animation-name: pulse;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            width: 90px;
+            height: 90px;
+            font-size: 0px;
+            border-width: 1px;
+            border: none;
+            border-radius: 50px;
+            /* margin: 18px; */
+            outline: none;
+            background-color: #ff0000;
+            border: 3px solid #000000;
+        }
+
+        .controls {
+            outline: none;
+            border: none;
+            border-color: transparent;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0px 0px 5px 0px rgba(255, 0, 0, 0.53);
+            }
+
+            65% {
+                box-shadow: 0px 0px 5px 13px rgba(255, 0, 0, 0.53);
+            }
+
+            90% {
+                box-shadow: 0px 0px 5px 13px rgba(173, 0, 0, 0);
+            }
+        }
+
+        .holder {
+            height: 100%;
+            width: 100%;
+            background-color: transparent;
+            border-radius: 7%;
+            position: absolute;
+        }
+
+        .logo {
+            margin-top: 10px;
+            margin-left: 10px;
+            left: 10px;
+            top: 10px;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: yellow;
+            background-size: 600% 100%;
+            /* animation: gradient 3s linear infinite; */
+            /* animation-direction: alternate; */
+            outline: none;
+            z-index: -2;
+        }
+
+        .button {
+            height: 50px;
+            width: 80px;
+            position: fixed;
+            bottom: 15px;
+            right: 7px;
+            z-index: 99;
+            padding: 0px;
+            font-size: 0px;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            vertical-align: middle;
+            display: table-cell;
+        }
+    </style>
+
+</head>
+
+<body >
+    <header id="header">
+        <h1><a href="/">KlassRoom</a></h1>
+        <nav id="nav" style="background-color: black;">
+            <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="https://twillio-video-stream.herokuapp.com/" target="_blank">START CLASS</a></li>
+                            <li><a href="/record">Record</a></li>
+                            <li><a href="/convertwav">Upload Recording</a></li>
+
+                            
+            </ul>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center><b>
+        <p style="font-size: 50px;color: black;border-radius: 10px;"><a href="https://twillio-video-stream.herokuapp.com/" target="_blank">START CLASS</p></a>
+        </center></b>
+    </header>
+    <!--recording button -->
+    <div class="center">
+        <div class="holder" id="holder">
+            <div data-role="controls" class="controls">
+                <button class="notRec" id="recordingButton" onclick="startRecording()"><b>START RECORDING</b></button>
+                <div data-role="recordings" style="position: absolute; left: 30%; top: 17%;"></div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <!--js link continued-->
+    <script src=" {{url_for('static', filename='ourscripts/index.js' )}}">
+    </script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.scrollex.min.js"></script>
+    <script src="static/js/jquery.scrolly.min.js"></script>
+    <script src="static/js/browser.min.js"></script>
+    <script src="static/js/breakpoints.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.2.3/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.2.3/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+</body>
+
+</html>
